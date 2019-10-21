@@ -6,7 +6,8 @@ const User = models.users
 
 exports.login = (req, res) => {
     const email= req.body.email
-    const password = md5(req.body.password)
+    // const password = md5(req.body.password)
+    const password = req.body.password
 
     User.findOne({where:{email, password}}).then(user=>{
         if(user){
