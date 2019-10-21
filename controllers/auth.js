@@ -13,12 +13,11 @@ exports.login = (req, res) => {
         if(user){
             const token = jwt.sign({ userId: user.id}, 'my-secret-key')
             res.send({
-                response:{
-                    message: "Success logged in",
-                    // username:user.username,
-                    // email:user.email,
-                    token: token
-                }
+                message: "Success logged in",
+                // username:user.username,
+                // email:user.email,
+                id : user.id,
+                token: token
             })
         }else{
             res.send({
