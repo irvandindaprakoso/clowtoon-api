@@ -8,14 +8,18 @@ module.exports = {
         genre:'drama',
         isFavourite: true,
         image: 'https://via.placeholder.com/1080',
-        created_by:1
+        created_by:1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         title: 'Webtoon 2',
         genre:'horror',
         isFavourite: true,
         image: 'https://via.placeholder.com/1080',
-        created_by:2
+        created_by:2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
     ], {});
   },

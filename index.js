@@ -17,7 +17,7 @@ const AuthController = require('./controllers/auth')
 // Middleware
 const { authenticated } = require('./middleware')
 
-app.get('/', (res, req) => {
+app.get('/', (req, res) => {
     res.send('Sukses')
 })
 app.group('/api/v1', (router)=>{
