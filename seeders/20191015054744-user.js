@@ -7,13 +7,15 @@ module.exports = {
         email: 'admin@gmail.com',
         password: 'rahasia',
         username: 'Ademin',
+        image :'https://via.placeholder.com/1080',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        email: 'jhon.doe@gmail.com',
-        password: 'secret',
-        username: 'Jhon Doe',
+        email: 'irvan@gmail',
+        password: 'irvan',
+        username: 'Irvan',
+        image :'https://via.placeholder.com/1080',
         createdAt: new Date(),
         updatedAt: new Date(),
 

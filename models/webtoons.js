@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     genre: DataTypes.STRING,
     isFavourite: DataTypes.BOOLEAN,
-    image: DataTypes.STRING,
+    url: DataTypes.STRING,
     created_by: DataTypes.INTEGER
   }, {});
   webtoons.associate = function(models) {

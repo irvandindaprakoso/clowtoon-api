@@ -17,7 +17,7 @@ module.exports = {
       isFavourite: {
         type: Sequelize.BOOLEAN
       },
-      image: {
+      url: {
         type: Sequelize.STRING
       },
       created_by: {
