@@ -29,8 +29,8 @@ app.group('/api/v1', (router)=>{
     // WEBTOONS 
     router.get('/webtoons',WebtoonsController.index)
     router.get('/user/:user_id/webtoons', authenticated, WebtoonsController.index)
-    router.get('/webtoons/favourites/:favourite', authenticated, WebtoonsController.favourite)
-    router.get('/webtoons/title/:title',WebtoonsController.title)
+    router.get('/webtoon/favourites/:favourite', authenticated, WebtoonsController.favourite)
+    router.get('/webtoon/title/:title',WebtoonsController.title)
     // WEBTOON EDIT 
     router.patch('/user/:user_id/webtoon/:webtoon_id',authenticated, WebtoonsController.update)
     // WEBTOON DELETE 
