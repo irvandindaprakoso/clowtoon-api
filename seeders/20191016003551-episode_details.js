@@ -6,7 +6,7 @@ module.exports = {
       {
         page: 1,
         image:'https://via.placeholder.com/1080',
-        episode_id: 1,
+        episode_id: 7,
         webtoon_id: 3,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -14,7 +14,7 @@ module.exports = {
       {
         page: 2,
         image:'https://via.placeholder.com/1080',
-        episode_id: 1,
+        episode_id: 7,
         webtoon_id: 3,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -22,7 +22,7 @@ module.exports = {
       {
         page: 3,
         image:'https://via.placeholder.com/1080',
-        episode_id: 1,
+        episode_id: 8,
         webtoon_id: 4,
         createdAt: new Date(),
         updatedAt: new Date(),
