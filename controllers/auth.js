@@ -17,7 +17,7 @@ exports.login = (req, res) => {
                 // username:user.username,
                 // email:user.email,
                 id : user.id,
-                token: toisFavouriteken
+                token: token
             })
         }else{
             res.send({
