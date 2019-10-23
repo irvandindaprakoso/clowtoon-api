@@ -30,12 +30,19 @@ exports.title = (req, res) =>{
 exports.store = (req, res)=>{
     Webtoon.create(
         req.body
-        ).then(webtoons=>{
-        res.send({
-            message:"Success created webtoon",
-            webtoons
-        })
-    })
+        ).then(webtoon=>{
+            if(webtoon){
+                res.send({
+                    message:"Success created webtoon",
+                    webtoon
+                })
+            }else{
+                res.send({
+                    message:"Error to create webtoon"
+                })
+            }
+        }   
+    )
 }
 
 exports.update = (req, res) => {
@@ -46,11 +53,18 @@ exports.update = (req, res) => {
             created_by:req.params.user_id,
             id:req.params.webtoon_id
         }
-    }).then(webtoons=>{
-        res.send({
-            message:"Success updated webtoon",
-            webtoons
-        })
+    }).then(webtoon=>{
+        if(webtoon){
+            res.send({
+                message:"Success updated webtoon",
+                webtoon
+            })
+        }else{
+            res.send({
+                message:"Error to update webtoon"
+            })
+        }
+        
     })
 }
 
@@ -60,11 +74,17 @@ exports.remove = (req, res)=> {
             created_by:req.params.user_id,
             id:req.params.webtoon_id
         }
-    }).then(webtoons=>{
-        res.send({
-            message: 'Success deleted webtoon',
-            webtoons
-        })
+    }).then(webtoon=>{
+        if(webtoon){
+            res.send({
+                message: 'Success deleted webtoon',
+                webtoon
+            })
+        }else{
+            res.send({
+                message: 'Error to delete webtoon'
+            })
+        } 
     })
 }
 

@@ -8,17 +8,23 @@ exports.read = (req, res) => {
             episode_id:req.params.episode_id,
             webtoon_id:req.params.webtoon_id
         }
-    }).then(det_episodes=>{
-        res.send({det_episodes})
+    }).then(episode_detail=>{
+        res.send({episode_detail})
     })
 }
 
 exports.store = (req, res) => {
-    EpisodeDetail.create(req.body).then(episode_details=>{
-        res.send({
-            message:'Success added Image',
-            episode_details
-        })
+    EpisodeDetail.create(req.body).then(episode_detail=>{
+        if(episode_detail){
+            res.send({
+                message:'Success added Image',
+                episode_detail
+            })
+        }else{
+            return res.send({
+                message:'Error to add Image',
+            })
+        }
     })
 }
 
@@ -28,10 +34,16 @@ exports.remove= (req, res) => {
         episode_id:req.params.episode_id,
         webtoon_id:req.params.webtoon_id,
         
-    }}).then(episode_details=>{
-        res.send({
-            message:'Success delete image',
-            episode_details
-        })
+    }}).then(episode_detail=>{
+        if(episode_detail){
+            res.send({
+                message:'Success delete image',
+                episode_details
+            })
+        }else{
+            return res.send({
+                message: "Error to delete image",
+            })
+        }
     })
 }

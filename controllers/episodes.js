@@ -15,10 +15,16 @@ exports.store = (req, res) => {
     Episode.create(
         req.body
     ).then(episodes => {
-        res.send({
-            message: 'Success created episode',
-            episodes
-        })
+        if(episodes){
+            res.send({
+                message: 'Success created episode',
+                episodes
+            })
+        }else{
+            return res.send({
+                message: 'Error to create episode',
+            })
+        }        
     })
 }
 
@@ -30,10 +36,17 @@ exports.update = (req, res) => {
             id:req.params.episode_id
         }}
     ).then(episode=>{
-        res.send({
-            message:'Success updated episode',
-            episode
-        })
+        if(episode){
+            res.send({
+                message:'Success updated episode',
+                episode
+            })
+        }else{
+            return res.send({
+                message:'Error to update episode'
+            })
+        }
+        
     })
 }
 
@@ -42,9 +55,16 @@ exports.remove = (req, res) => {
         webtoon_id:req.params.webtoon_id,
         id:req.params.episode_id
     }}).then(episode=>{
-        res.send({
-            message:'Success deleted episode',
-            episode
-        })
+        if(episode){
+            res.send({
+                message:'Success deleted episode',
+                episode
+            })
+        }else{
+            return res.send({
+                message:'Error to delete episode'
+            })
+        }
+        
     })
 }

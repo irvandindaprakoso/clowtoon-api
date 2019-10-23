@@ -53,7 +53,7 @@ app.group('/api/v1', (router)=>{
 
 
     // EPISODE DETAIL 
-    router.get('/user/:user_id/webtoon/:webtoon_id/episode/:episode_id/images',authenticated, DetailEpisodeController.read)
+    router.get('/webtoon/:webtoon_id/episode/:episode_id/images',authenticated, DetailEpisodeController.read)
     // EPISODE DETAIL CREATE
     router.post('/user/:user_id/webtoon/:webtoon_id/episode/:episode_id/image',authenticated, DetailEpisodeController.store)
     // EPISODE DETAIL DELETE
