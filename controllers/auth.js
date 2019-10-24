@@ -9,8 +9,8 @@ exports.index = (req, res) => {
 
 exports.login = (req, res) => {
     const email= req.body.email
-    const password = md5(req.body.password)
-    //const password = req.body.password
+    //const password = md5(req.body.password)
+    const password = req.body.password
 
     User.findOne({where:{email, password}}).then(user=>{
         if(user){
@@ -40,7 +40,8 @@ exports.register = (req, res) => {
                 User.create({
                     username:req.body.username,
                     email:req.body.email,
-                    password: md5(req.body.password)
+                    //password: md5(req.body.password)
+                    password: req.body.password
                 }).then(user => {
                     if(user){
                         const token = jwt.sign({ userId: user.id}, 'my-secret-key')
