@@ -21,7 +21,6 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
-,
       {
         title: 'Nanatsu no Taizai',
         genre:'action',
