@@ -3,6 +3,9 @@ const md5 = require('md5')
 const models = require('../models')
 const User = models.users
 
+exports.index = (req, res) => {
+    User.findAll().then(users=>res.send(users))
+}
 
 exports.login = (req, res) => {
     const email= req.body.email

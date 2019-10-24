@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
 app.group('/api/v1', (router)=>{
 
     // User
+    router.get('/user', AuthController.index)
     router.post('/login', AuthController.login)
     router.post('/register', AuthController.register)
 
