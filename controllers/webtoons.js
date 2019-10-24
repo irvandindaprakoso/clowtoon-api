@@ -38,9 +38,14 @@ exports.title = (req, res) =>{
 }
 
 exports.store = (req, res)=>{
-    Webtoon.create(
-        req.body
-        ).then(webtoon=>{
+    const data = {
+	"created_by": req.body.created_by,
+	"title": req.body.title,
+	"url": req.file.path,
+	"genre": req.body.genre,
+    }
+    try{
+        Webtoon.create(data).then(webtoon=>{
             if(webtoon){
                 res.send({
                     message:"Success created webtoon",
@@ -51,8 +56,13 @@ exports.store = (req, res)=>{
                     message:"Error to create webtoon"
                 })
             }
-        }   
-    )
+        })
+    }catch(err){
+        res.send({
+            err,
+            req:data
+        })
+    }
 }
 
 exports.update = (req, res) => {
