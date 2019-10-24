@@ -7,6 +7,16 @@ exports.index= (req, res)=>{
     Webtoon.findAll().then(webtoons=>res.send(webtoons))
 }
 
+exports.getWebtoonsByUser = (req, res)=>{
+    Webtoon.findAll({
+        where:{
+            created_by:req.params.user_id
+        }
+    }).then(webtoons=>{
+        res.send(webtoons)
+    })
+}
+
 exports.favourite = (req, res)=>{
     Webtoon.findAll({
         where:{
