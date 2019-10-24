@@ -1,12 +1,15 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 require('express-group-routes')
+require()
 
 const app = express()
 
 const port = process.env.PORT || 4000
 
 app.use(bodyParser.json())
+app.use('./public/uploads', express.static('public/uploads'))
+
 
 // Controllers
 const WebtoonsController = require('./controllers/webtoons')
@@ -16,6 +19,8 @@ const AuthController = require('./controllers/auth')
 
 // Middleware
 const { authenticated } = require('./middleware')
+const {upload} = require('./upload')
+
 
 app.get('/', (req, res) => {
     res.send('Sukses')
@@ -37,7 +42,7 @@ app.group('/api/v1', (router)=>{
     // WEBTOON DELETE 
     router.delete('/user/:user_id/webtoon/:webtoon_id', authenticated, WebtoonsController.remove)
     // WEBTOON CREATE 
-    router.post('/user/:id/webtoon',authenticated, WebtoonsController.store)
+    router.post('/user/:id/webtoon',authenticated, upload.single('url'), WebtoonsController.store)
     
 
     // EPISODE 
